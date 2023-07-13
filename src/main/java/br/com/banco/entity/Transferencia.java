@@ -1,6 +1,7 @@
 package br.com.banco.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.OffsetDateTime;
 
 @Entity
@@ -9,10 +10,14 @@ public class Transferencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotEmpty
     private OffsetDateTime data_transferencia;
+    @NotEmpty
     private Double valor;
+    @NotEmpty
     private String tipo;
     private String nome_operador_transacao;
+    @NotEmpty
     private Integer conta_id;
 
     public long getId() {
