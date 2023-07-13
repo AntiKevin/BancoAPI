@@ -1,4 +1,4 @@
-package br.com.banco.controller;
+package br.com.banco.controllers;
 
 import br.com.banco.entity.Conta;
 import br.com.banco.service.ContaService;
@@ -16,18 +16,20 @@ public class ContaController {
         this.contaService = contaService;
     }
 
+    @GetMapping
+    List<Conta> list(){return contaService.list();}
+
+    @GetMapping("{id}")
+    List<Conta> listById(@PathVariable("id") Long id){return contaService.listById(id);}
+
     @PostMapping
     List<Conta> create(@RequestBody @Valid Conta conta){
         return contaService.create(conta);
     }
 
-    @GetMapping
-    List<Conta> list(){
-        return contaService.list();
-    }
-    @PutMapping
-    List<Conta> update(@RequestBody Conta conta){
-        return contaService.update(conta);
+    @PutMapping("{id}")
+    List<Conta> update(@PathVariable Long id, @RequestBody Conta conta){
+        return contaService.update(id, conta);
     }
 
     @DeleteMapping("{id}")
