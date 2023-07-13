@@ -1,6 +1,7 @@
 package br.com.banco.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "conta")
@@ -8,6 +9,8 @@ public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_conta;
+
+    @NotEmpty(message = "O nome do responsável é obrigatório")
     private String nome_responsavel;
 
     public Long getId_conta() {

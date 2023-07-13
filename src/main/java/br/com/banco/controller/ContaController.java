@@ -4,6 +4,7 @@ import br.com.banco.entity.Conta;
 import br.com.banco.service.ContaService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class ContaController {
     }
 
     @PostMapping
-    List<Conta> create(@RequestBody Conta conta){
+    List<Conta> create(@RequestBody @Valid Conta conta){
         return contaService.create(conta);
     }
 
