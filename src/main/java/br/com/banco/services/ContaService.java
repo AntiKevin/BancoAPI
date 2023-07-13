@@ -1,8 +1,8 @@
-package br.com.banco.service;
+package br.com.banco.services;
 
 import br.com.banco.Exceptions.BadRequestException;
-import br.com.banco.entity.Conta;
-import br.com.banco.repository.ContaRepository;
+import br.com.banco.entitys.Conta;
+import br.com.banco.repositorys.ContaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
