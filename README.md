@@ -41,7 +41,7 @@ O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://loc
 
 ## API Endpoints
 
-Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta springdoc OpenApi 3:
+Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta springdoc OpenApi 3 e Insomnia:
 
 ### Endpoints de Transferencias
 ![Schema](/docs/images/transferencia_endpoints.png)
