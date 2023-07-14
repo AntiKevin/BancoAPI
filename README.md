@@ -1,49 +1,57 @@
-# Processo Seletivo Java
+<h1 align="center">
+  Banco API
+</h1>
 
-## Descrição 
+<p align="center">
+ <img src="https://img.shields.io/static/v1?label=Dev&message=Kevin Rodrigues&color=8257E5&labelColor=000000" alt="@giulianabezerra" />
+ <img src="https://img.shields.io/static/v1?label=Tipo&message=Desafio&color=8257E5&labelColor=000000" alt="Desafio" />
+</p>
 
-- Este teste consiste em construir uma camada de serviço, para uma operação muito realizada em bancos, para emissão de extrato bancário.
+API para gerenciar transferencias de um banco via (CRUD) que faz parte [desse desafio](https://github.com/Supera-Inovacao-Tecnologia/PS-Java-React) para pessoas desenvolvedoras backend júnior, que se candidatam para a Supera.
 
+## Tecnologias
 
-## Como executar a aplicação 
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
+- [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [SpringDoc OpenAPI 3](https://springdoc.org/v2/#spring-webflux-support)
 
-- Você pode executar a aplicação da maneira que quiser e utilizando a IDE de sua preferência. 
-- Caso queira executar a aplicação via linha de comando, execute primeiramente o comando:
+## Práticas adotadas
 
-                   ./mvnw clean package  para linux.
+- SOLID, DRY, YAGNI, KISS
+- API REST
+- Consultas com Spring Data JPA
+- Injeção de Dependências
+- Tratamento de respostas de erro
+- Geração automática do Swagger com a OpenAPI 3
 
-                   .\mvnw clean package  para windows.
-- Após isso execute o comando: 
+## Como Executar
 
-                             java -jar <...caminhoParaSeuJar>
+- Clonar repositório git
+- Construir o projeto:
+```
+$ ./mvnw clean package
+```
+- Executar a aplicação:
+```
+$ java -jar <...caminhoParaSeuJar>
+```
 
-## Requisitos de sistema
+A API poderá ser acessada em [localhost:8080](http://localhost:8080).
+O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-- Possuir a JDK 11 
-- Uma IDE ou editor de sua preferência
+## API Endpoints
 
-## Requisitos do Projeto
+Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta springdoc OpenApi 3:
 
-- A sua api deve fornecer os dados de transferência de acordo com o número da conta bacária.
-- Caso não seja informado nenhum filtro, retornar  todos os dados de transferência.
-- Caso seja informado um período de tempo, retornar todas as transferências relacionadas à aquele período de tempo.
-- Caso seja informado o nome do operador da transação, retornar todas as transferências relacionados à aquele operador.
-- Caso todos os filtros sejam informados, retornar todas as transferências com base no período de tempo informado e o nome do operador.
-- Operador de transação nada mais é que, o nome do responsável de destino da transação caso seja uma operação de transferência de saida ou o nome do responsável de onde se originou a transação caso seja uma operação de transferência de entrada.
-- Os valores devem ser de ponto flutuante, e deve-se considerar apenas duas casas decimais.
-- O frontend deve seguir como exemplo o protótipo informado no documento do processo seletivo.
-- No frontend o usuário deve ser capaz de informar um período de tem e/ou nome do operador da transasção como filtros para buscar as transações.
-- As transações devem ser exibidas junto com o saldo total e o saldo total no período de acordo com o protótipo do documento.
+### Endpoints de Contas
+![Schema](/docs/images/contas_endpoints.png)
 
-## O que iremos avaliar
-- Cumprimento dos requisitos
-- Qualidade do projeto de API e fluidez da DX
-- Organização do código e boas práticas
-- Domínio das linguagens, bibliotecas e ferramentas utilizadas
-- Organização dos commits
-- Escrita e cobertura de testes
+### Endpoints de Contas
+![Schema](/docs/images/contas_endpoints.png)
 
-## Sobre a entrega
-- Utilizar o padrão RESTFul para a construção da sua API.
-- Existe um script sql no pacote resources que cotém a modelagem do banco que pode ser seguida, e valores iniciais.
-- Caso julge necessário você poderá criar mais tablas, porém a estrutura inicial não deve ser alterada.
+### Schemas da API
+![Schema](/docs/images/schemas.png)
+
+para mais informações e testes de endpoints abra o swagger da aplicação citado acima.
+
