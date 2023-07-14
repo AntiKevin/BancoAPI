@@ -4,9 +4,11 @@ import br.com.banco.entitys.Transferencia;
 import br.com.banco.repositorys.TransferenciaRepository;
 import br.com.banco.services.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @RestController
@@ -23,11 +25,16 @@ public class TransferenciaController {
     }
 
     @GetMapping()
-    public List<Transferencia> list(@RequestParam(value = "nome_operador", required = false) String nomeOperador) {
+    public List<Transferencia> list(
+            @RequestParam(value = "nomeOperador", required = false) String nomeOperador,
+            @RequestParam(value = "dataInicio", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicio,
+            @RequestParam(value = "dataFim", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFim) {
         if (nomeOperador != null) {
             return transferenciaRepository.findByNomeOperadorContaining(nomeOperador);
+        } else if (dataInicio != null && dataFim != null) {
+            return transferenciaRepository.findByDataTransferenciaBetween(dataInicio, dataFim);
         } else {
-            return transferenciaService.list();
+            return transferenciaRepository.findAll();
         }
     }
 
