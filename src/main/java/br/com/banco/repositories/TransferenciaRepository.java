@@ -18,6 +18,8 @@ public interface TransferenciaRepository extends JpaRepository<Transferencia, Lo
     @Query("SELECT t FROM Transferencia t WHERE (:dataInicio IS NULL OR t.data_transferencia >= :dataInicio) AND (:dataFim IS NULL OR t.data_transferencia <= :dataFim)")
     List<Transferencia> findByDataTransferenciaBetween(@Param("dataInicio") OffsetDateTime dataInicio, @Param("dataFim") OffsetDateTime dataFim);
 
+    @Query("SELECT t FROM Transferencia t WHERE t.nome_operador_transacao LIKE %:nomeOperador% AND (:dataInicio IS NULL OR t.data_transferencia >= :dataInicio) AND (:dataFim IS NULL OR t.data_transferencia <= :dataFim)")
+    List<Transferencia> findByNomeOperadorAndDataTransferenciaBetween(@Param("nomeOperador") String nomeOperador, @Param("dataInicio") OffsetDateTime dataInicio, @Param("dataFim") OffsetDateTime dataFim);
 
 
 }

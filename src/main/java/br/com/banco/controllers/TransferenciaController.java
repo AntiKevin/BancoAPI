@@ -29,9 +29,11 @@ public class TransferenciaController {
             @RequestParam(value = "nomeOperador", required = false) String nomeOperador,
             @RequestParam(value = "dataInicio", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataInicio,
             @RequestParam(value = "dataFim", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dataFim) {
-        if (nomeOperador != null) {
+        if (nomeOperador != null && (dataInicio != null || dataFim != null)) {
+            return transferenciaRepository.findByNomeOperadorAndDataTransferenciaBetween(nomeOperador, dataInicio, dataFim);
+        } else if (nomeOperador != null) {
             return transferenciaRepository.findByNomeOperadorContaining(nomeOperador);
-        } else if (dataInicio != null || dataFim != null) {
+        } else if (dataInicio != null && dataFim != null) {
             return transferenciaRepository.findByDataTransferenciaBetween(dataInicio, dataFim);
         } else {
             return transferenciaRepository.findAll();
