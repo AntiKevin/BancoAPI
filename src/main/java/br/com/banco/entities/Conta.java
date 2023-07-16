@@ -1,4 +1,4 @@
-package br.com.banco.entitys;
+package br.com.banco.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

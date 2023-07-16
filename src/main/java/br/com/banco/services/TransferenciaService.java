@@ -1,8 +1,8 @@
 package br.com.banco.services;
 
 import br.com.banco.Exceptions.BadRequestException;
-import br.com.banco.entitys.Transferencia;
-import br.com.banco.repositorys.TransferenciaRepository;
+import br.com.banco.entities.Transferencia;
+import br.com.banco.repositories.TransferenciaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

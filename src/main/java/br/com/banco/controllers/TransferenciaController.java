@@ -1,7 +1,7 @@
 package br.com.banco.controllers;
 
-import br.com.banco.entitys.Transferencia;
-import br.com.banco.repositorys.TransferenciaRepository;
+import br.com.banco.entities.Transferencia;
+import br.com.banco.repositories.TransferenciaRepository;
 import br.com.banco.services.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

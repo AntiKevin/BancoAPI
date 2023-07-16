@@ -1,6 +1,6 @@
 package br.com.banco.controllers;
 
-import br.com.banco.entitys.Conta;
+import br.com.banco.entities.Conta;
 import br.com.banco.services.ContaService;
 import org.springframework.web.bind.annotation.*;
 
